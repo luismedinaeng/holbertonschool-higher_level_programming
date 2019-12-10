@@ -3,7 +3,7 @@
 
 /**
  * check_cycle - Finds a loop in a listint_t list
- * @head: Head of the list
+ * @list: Head of the list
  *
  * Description: Finds a loop in a linked list
  *
