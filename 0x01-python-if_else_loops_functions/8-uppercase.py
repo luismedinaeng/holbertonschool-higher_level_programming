@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def uppercase(str):
     for i in range(0, len(str)):
         s = "\n" if i == len(str) - 1 else ""
