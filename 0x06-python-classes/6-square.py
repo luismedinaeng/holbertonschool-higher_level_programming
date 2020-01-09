@@ -52,4 +52,4 @@ class Square:
             print("{:s}{:s}".format(' ' * self.__position[0],
                                     '#' * self.__size))
         if self.__size == 0:
-            print("{:s}".format(' ' * self.__position[0]))
+            print("")

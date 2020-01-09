@@ -32,6 +32,6 @@ class Square:
         ''' Prints in stdout the square with the char #
         '''
         for i in range(self.__size):
-            print("{:s}".format('#' * self.__size ))
+            print("{:s}".format('#' * self.__size))
         if self.__size == 0:
             print("")
