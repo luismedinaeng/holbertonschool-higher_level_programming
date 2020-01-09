@@ -1,8 +1,18 @@
 #!/usr/bin/python3
 class Square:
     def __init__(self, size=0, position=(0, 0)):
-        self.size = size
-        self.position = position
+        if type(size) != int:
+            raise TypeError("size must be an integer")
+        if size < 0:
+            raise ValueError("size must be >= 0")
+        self.__size = size
+
+        if type(position) != tuple or len(position) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if type(position[0]) != int or position[0] < 0 or \
+           type(position[1]) != int or position[1] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = position
 
     @property
     def size(self):
@@ -11,14 +21,14 @@ class Square:
         return self.__size
 
     @size.setter
-    def size(self, size):
+    def size(self, value):
         ''' Sets a new valur for the size of the square
         '''
-        if type(size) != int:
+        if type(value) != int:
             raise TypeError("size must be an integer")
-        if size < 0:
+        if value < 0:
             raise ValueError("size must be >= 0")
-        self.__size = size
+        self.__size = value
 
     @property
     def position(self):
@@ -55,7 +65,7 @@ my_square_1.my_print()
 
 print("--")
 
-my_square_2 = Square(3, (1, 1))
+my_square_2 = Square(3, (0, 1))
 my_square_2.my_print()
 
 print("--")
