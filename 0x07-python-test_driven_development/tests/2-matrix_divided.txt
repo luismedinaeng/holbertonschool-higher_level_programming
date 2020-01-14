@@ -1,0 +1,59 @@
+´matrix_divided´ module
+============================
+
+Importing the function
+	 >>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+
+Creating the variables
+	 >>> mx = [[1, 2, 3], [4, 5, 6]]
+	 >>> nu = 3
+
+Using the function with
+	 >>> matrix_divided(mx, nu)
+	 [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+	 >>> mx
+	 [[1, 2, 3], [4, 5, 6]]
+
+Trying an empty list
+	 >>> matrix_divided([], nu)
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Trying an list with strings in it
+	 >>> matrix_divided([["hi", 2, 3], [4, 5, 6]], nu)
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Trying a single list (Not a list of lists)
+	 >>> matrix_divided(mx[0], nu)
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Trying a matrix with different length of rows
+	 >>> matrix_divided([[1, 2, 3], [4, 5, 6, 7]], nu)
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: Each row of the matrix must have the same size
+ 	 >>> matrix_divided([[1, 2, 3, 4], [4, 5, 6]], nu)
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: Each row of the matrix must have the same size
+
+Trying a division with another type
+	 >>> matrix_divided(mx, [])
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: div must be a number
+	 >>> matrix_divided(mx, "hi")
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: div must be a number
+
+Trying a division with 0
+	 >>> matrix_divided(mx, 0)
+	 Traceback (most recent call last):
+	 ...
+	 ZeroDivisionError: division by 0

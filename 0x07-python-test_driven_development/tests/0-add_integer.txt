@@ -1,0 +1,45 @@
+´add_integer´ module
+============================
+
+Importing the function
+	 >>> add_integer = __import__("0-add_integer").add_integer
+
+Just using one argument
+	 >>> add_integer(2)
+	 100
+
+Using both arguments
+	  >>> add_integer(2, 3)
+	  5
+
+Using negative number in one argument
+    >>> add_integer(-98)
+    0
+
+Using string
+    >>> add_integer("hi")
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+Using first param with number and the second with a string
+	  >>> add_integer(3, "hi")
+	  Traceback (most recent call last):
+	  ...
+	  TypeError: b must be an integer
+
+Using negative numbers
+	  >>> add_integer(-5, -125)
+	  -130
+
+Using an empty list
+	  >>> add_integer([])
+	  Traceback (most recent call last):
+	  ...
+	  TypeError: a must be an integer
+
+Using booleans
+	  >>> add_integer(True, 1)
+	  Traceback (most recent call last):
+	  ...
+	  TypeError: a must be an integer
