@@ -6,8 +6,8 @@ Importing the function
 
 Trying a text with the special characters
 	 >>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
-	 	 Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
-		 Non autem hoc: igitur ne illud quidem. Fortasse""")
+	 ... Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
+	 ... Non autem hoc: igitur ne illud quidem. Fortasse""")
 	 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 	 <BLANKLINE>
 	 Quonam modo?
@@ -18,7 +18,7 @@ Trying a text with the special characters
 	 <BLANKLINE>
 	 igitur ne illud quidem.
 	 <BLANKLINE>
-	 Fortasse>>>
+	 Fortasse
 
 Using another type
 	 >>> text_indentation(2)
