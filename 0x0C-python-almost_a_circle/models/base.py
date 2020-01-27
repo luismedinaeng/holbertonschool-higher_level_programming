@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-import json
 '''Module that has the Base Class for figures
 '''
+import json
 
 
 class Base:
-    '''Class that represents
+    '''Class that represents the base of a figure
     '''
     __nb_objects = 0
 

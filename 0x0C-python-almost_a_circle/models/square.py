@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-from models.rectangle import Rectangle
 ''' Module that has the Class of Rectangle
 '''
+from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    ''' Class that represents '''
+    ''' Class that represents a square
+    '''
     def __init__(self, size, x=0, y=0, id=None):
         ''' Constructor method
         '''
@@ -28,7 +29,7 @@ class Square(Rectangle):
         ''' Updats the information of the objejct
         '''
         att = ("id", "size", "x", "y")
-        if args != None and len(args) != 0:
+        if args is not None and len(args) != 0:
             for i in range(len(args)):
                 setattr(self, att[i], args[i])
         else:
