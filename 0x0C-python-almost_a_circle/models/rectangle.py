@@ -110,11 +110,8 @@ class Rectangle(Base):
         '''
         att = ("id", "width", "height", "x", "y")
         dic = dict()
-        i = 0
-        for key, val in self.__dict__.items():
-            if hasattr(self, att[i]):
-                dic[att[i]] = val
-            i += 1
+        for a in att:
+            dic[a] = getattr(self, a)
         return dic
 
     def __str__(self):
