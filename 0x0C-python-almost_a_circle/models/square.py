@@ -1,21 +1,32 @@
 #!/usr/bin/python3
 from models.rectangle import Rectangle
+''' Module that has the Class of Rectangle
+'''
+
 
 class Square(Rectangle):
-
+    ''' Class that represents '''
     def __init__(self, size, x=0, y=0, id=None):
+        ''' Constructor method
+        '''
         super().__init__(size, size, x, y, id)
 
     @property
     def size(self):
+        ''' Get property for size
+        '''
         return self.width
 
     @size.setter
     def size(self, value):
+        ''' Set property for size
+        '''
         self.width = value
         self.height = value
 
     def update(self, *args, **kwargs):
+        ''' Updats the information of the objejct
+        '''
         att = ("id", "size", "x", "y")
         if args != None and len(args) != 0:
             for i in range(len(args)):
@@ -26,6 +37,7 @@ class Square(Rectangle):
                     setattr(self, key, val)
 
     def to_dictionary(self):
+        ''' Returns a dictionary representation of the object'''
         att = ("id", "size", "size", "x", "y")
         dic = dict()
         i = 0
@@ -36,5 +48,7 @@ class Square(Rectangle):
         return dic
 
     def __str__(self):
+        ''' Overload method for __str__
+        '''
         r_str = "[Square] ({:d}) {:d}/{:d} - {:d}"
         return r_str.format(self.id, self.x, self.y, self.width)
