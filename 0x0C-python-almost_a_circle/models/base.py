@@ -38,3 +38,37 @@ class Base:
 
         with open(cls.__name__ + ".json", mode="w") as a_file:
             a_file.write(str_save)
+
+    @staticmethod
+    def from_json_string(json_string):
+        ''' Convert a string rep of a json to a list of dictionaries
+        '''
+        if json_string is None or json_string == "":
+            return []
+        return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        ''' Create a object from a dictionary
+        '''
+        if cls.__name__ is "Rectangle":
+            obj = cls(width=1, height=1)
+        else:
+            obj = cls(size=1)
+        obj.update(**dictionary)
+        return obj
+
+    @classmethod
+    def load_from_file(cls):
+        ''' Loads information from a file and create a list of objects
+        '''
+        try:
+            with open(cls.__name__ + ".json", mode="r") as a_file:
+                str_load = a_file.read()
+        except:
+            str_load = ""
+        str_load = cls.from_json_string(str_load)
+        list_objs = []
+        for obj in str_load:
+            list_objs.append(cls.create(**obj))
+        return list_objs
