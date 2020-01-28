@@ -2,6 +2,7 @@
 '''Module that has the Base Class for figures
 '''
 import json
+import csv
 
 
 class Base:
@@ -28,7 +29,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        ''' Save to a file a list of objects
+        ''' Save to a file a list of objects in json format
         '''
         str_save = []
         if list_objs is not None:
@@ -60,7 +61,7 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        ''' Loads information from a file and create a list of objects
+        ''' Loads information from a json file and create a list of objects
         '''
         try:
             with open(cls.__name__ + ".json", mode="r") as a_file:
@@ -70,5 +71,53 @@ class Base:
         str_load = cls.from_json_string(str_load)
         list_objs = []
         for obj in str_load:
+            list_objs.append(cls.create(**obj))
+        return list_objs
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        ''' Save to a file a list of objects in csv format
+        '''
+        str_save = []
+        if list_objs is not None:
+            for obj in list_objs:
+                str_save.append(obj.to_dictionary())
+
+        if cls.__name__ == "Rectangle":
+            fields = ["id", "width", "height", "x", "y"]
+        else:
+            fields = ["id", "size", "x", "y"]
+
+        with open(cls.__name__ + ".csv", mode="w") as a_file:
+            writ = csv.DictWriter(a_file, fieldnames=fields)
+            writ.writeheader()
+            for data in str_save:
+                writ.writerow(data)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        ''' Loads information from a csv file and create a list of objects
+        '''
+        if cls.__name__ == "Rectangle":
+            fields = ["id", "width", "height", "x", "y"]
+        else:
+            fields = ["id", "size", "x", "y"]
+
+        str_load = []
+        try:
+            with open(cls.__name__ + ".csv", mode="r", newline="") as a_file:
+                read_f = csv.DictReader(a_file)
+                for obj in read_f:
+                    obj_dict = dict(obj)
+                    new_obj_dict = dict()
+                    for k, v in obj_dict.items():
+                        new_obj_dict[k] = int(v)
+                    str_load.append(new_obj_dict)
+        except:
+            pass
+
+        list_objs = []
+        for obj in str_load:
+
             list_objs.append(cls.create(**obj))
         return list_objs
