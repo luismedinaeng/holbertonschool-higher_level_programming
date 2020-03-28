@@ -11,10 +11,10 @@ from sqlalchemy.orm import sessionmaker
 
 def getCities(conn):
     '''Prints all the cities with them states'''
-    query = conn.query(City).order_by(City.id)
+    query = conn.query(State, City).filter(State.id == City.state_id).order_by(City.id)
     cities = query.all()
-    for city in cities:
-        print("{}: ({:d}) {}".format(city.state.name, city.id, city.name))
+    for state, city in cities:
+        print("{}: ({:d}) {}".format(state.name, city.id, city.name))
 
 if __name__ == "__main__":
     db = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
