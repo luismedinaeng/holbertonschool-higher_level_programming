@@ -11,7 +11,8 @@ from sqlalchemy.orm import sessionmaker
 
 def getCities(conn):
     '''Prints all the cities with them states'''
-    query = conn.query(State, City).filter(State.id == City.state_id).order_by(City.id)
+    query = conn.query(State, City).filter(State.id == City.state_id)\
+                                   .order_by(City.id)
     cities = query.all()
     for state, city in cities:
         print("{}: ({:d}) {}".format(state.name, city.id, city.name))
