@@ -51,13 +51,44 @@ flycheck_*.el
 # network security
 /network-security.data
 
+# End of https://www.gitignore.io/api/emacs
+
 # Putchar function
 _putchar.c
 
 # Test files
 *p.c
 *prueba*
+*main*
+
+# Input files
+*.txt
+*.csv
+*.json
+*.sql
+
+# Compiled files
+*pycache*
+
+# Additional files
+# Project 0x00
+cycle
+
+# Project 0x01
+insert
+
+# Project 0x02
+add_0.py
+calculator_1.py
+hidden_4.pyc
+variable_load_5.py
+
+# Project 0x05
+101-safe_function.py
+
+  
 
 
 
-# End of https://www.gitignore.io/api/emacs
+
+
