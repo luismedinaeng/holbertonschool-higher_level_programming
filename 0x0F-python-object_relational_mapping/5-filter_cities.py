@@ -8,9 +8,9 @@ def getCitiesbyState(cursor, state_name):
     strsql = """SELECT cities.name
     FROM cities INNER JOIN states ON cities.state_id = states.id
     WHERE states.name = %s
-    ORDER BY cities.id"""
+    ORDER BY cities.id ASC;OB"""
 
-    count = cur.execute(strsql, (sys.argv[4], ))
+    count = cur.execute(strsql, (state_name, ))
     cities = cur.fetchall()
     for i, city in zip(range(count), cities):
         print(city[0], end='\n' if i == count - 1 else ', ')
