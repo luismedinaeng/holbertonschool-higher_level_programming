@@ -1,15 +1,17 @@
 #!/usr/bin/python3
 ''' Script that lists states that matches the argument
 from the database hbtn_0e_0_usa'''
+import sys
+import MySQLdb
 
 
 def getStates(cursor, state_name):
     ''' Get the states of a database that matches with the param
     The cursor that would be used is inserted by param'''
-    strsql = "SELECT *
+    strsql = """SELECT *
     FROM states
-    WHERE name = '{:s}'
-    ORDER BY id".format(state_name)
+    WHERE name = '{}'
+    ORDER BY id""".format(state_name)
 
     cursor.execute(strsql)
     states = cursor.fetchall()
@@ -17,12 +19,6 @@ def getStates(cursor, state_name):
         print(state)
 
 if __name__ == "__main__":
-    import MySQLdb
-    import sys
-
-    if len(sys.argv) != 5:
-        print("Incorrect number of args")
-
     db = MySQLdb.connect(host="localhost",
                          port=3306,
                          user=sys.argv[1],
