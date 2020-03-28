@@ -1,20 +1,20 @@
 #!/usr/bin/python3
 ''' Script that lists states starting with 'N' from database hbtn_0e_0_usa'''
 
+import sys
+import MySQLdb
+
 
 def getStatesStartingN(cursor):
     ''' Get the states of a database that starts with 'N'
     The cursor that would be used is inserted by param'''
-    strsql = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id"
+    strsql = "SELECT * FROM states WHERE name COLLATE latin1_general_cs LIKE 'N%' ORDER BY id"
     cursor.execute(strsql)
     states = cursor.fetchall()
     for state in states:
         print(state)
 
 if __name__ == "__main__":
-    import MySQLdb
-    import sys
-
     db = MySQLdb.connect(host="localhost",
                          port=3306,
                          user=sys.argv[1],
