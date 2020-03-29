@@ -24,5 +24,4 @@ if __name__ == "__main__":
         for city in state.cities:
             print("\t{:d}: {:s}".format(city.id, city.name))
 
-
     conn.close()
