@@ -16,4 +16,4 @@ class State(Base):
                 autoincrement=True, unique=True)
     name = Column('name', String(128), nullable=False)
 
-    cities = relationship("City", back_populates="state")
+    cities = relationship("City", back_populates="state", order_by="City.id")
