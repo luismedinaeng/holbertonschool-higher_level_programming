@@ -10,9 +10,8 @@ from sqlalchemy.orm import sessionmaker
 
 def listStatesCities(conn):
     '''Creates a new state with an associated city'''
-    query = conn.query(State).order_by(State.id)
-    states = query.all()
-    for state in states:
+    sts = conn.query(State).order_by(State.id).all()
+    for state in sts:
         print("{:d}: {:s}".format(state.id, state.name))
         for city in state.cities:
             print("\t{:d}: {:s}".format(city.id, city.name))
