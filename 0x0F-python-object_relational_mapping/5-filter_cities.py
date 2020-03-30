@@ -14,6 +14,8 @@ def getCitiesbyState(cursor, state_name):
     cities = cur.fetchall()
     for i, city in zip(range(count), cities):
         print(city[0], end='\n' if i == count - 1 else ', ')
+    if count == 0:
+        print("")
 
 if __name__ == "__main__":
     import MySQLdb
