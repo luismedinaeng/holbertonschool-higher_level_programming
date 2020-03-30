@@ -8,7 +8,7 @@ import MySQLdb
 def getStatesStartingN(cursor):
     ''' Get the states of a database that starts with 'N'
     The cursor that would be used is inserted by param'''
-    strsql = "SELECT * FROM states WHERE name LIKE %s ORDER BY id"
+    strsql = "SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY id"
     cursor.execute(strsql, ('N%',))
     states = cursor.fetchall()
     for state in states:
