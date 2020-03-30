@@ -10,7 +10,7 @@ def getStates(cursor, state_name):
     The cursor that would be used is inserted by param'''
     strsql = """SELECT *
     FROM states
-    WHERE name = '{}'
+    WHERE BINARY name = '{}'
     ORDER BY id""".format(state_name)
 
     cursor.execute(strsql)
