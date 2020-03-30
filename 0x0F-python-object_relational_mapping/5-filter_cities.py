@@ -7,7 +7,7 @@ def getCitiesbyState(cursor, state_name):
     Stablish the connect by the cursor inserted by param'''
     strsql = """SELECT cities.name
     FROM cities INNER JOIN states ON cities.state_id = states.id
-    WHERE states.name = %s
+    WHERE states.name=%s
     ORDER BY cities.id ASC"""
 
     count = cur.execute(strsql, (state_name, ))
