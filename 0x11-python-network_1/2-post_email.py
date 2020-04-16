@@ -5,12 +5,13 @@ passed URL with the email as a parameter, and displays
 the body of the response
 '''
 import sys
-from urllib import request, url
+import urllib.request
+import urllib.parse
 
 if __name__ == "__main__":
     url = sys.argv[1]
     values = {'email': sys.argv[2]}
-    data = parse.urlencode(values).encode('ascii')
-    req = request.Request(url, data)
-    with request.urlopen(req) as response:
+    data = urllib.parse.urlencode(values).encode('ascii')
+    req = urllib.request.Request(url, data)
+    with urllib.request.urlopen(req) as response:
         print(response.read().decode('utf-8'))
