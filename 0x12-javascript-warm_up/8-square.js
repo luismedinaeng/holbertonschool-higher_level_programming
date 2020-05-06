@@ -5,7 +5,7 @@ if (!size) {
   console.log('Missing size');
 } else {
   for (let i = 0; i < size; i++) {
-    str = str + 'x';
+    str = str + 'X';
   }
   for (let i = 0; i < size; i++) {
     console.log(str);
