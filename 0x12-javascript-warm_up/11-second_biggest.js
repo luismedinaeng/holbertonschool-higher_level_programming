@@ -6,7 +6,7 @@ for (let i = 0; i < list.length; i++) {
   if (list[i] > first) {
     second = first;
     first = list[i];
-  } else if (list[i] > second) {
+  } else if (list[i] > second && !(i === 0)) {
     second = list[i];
   }
 }
