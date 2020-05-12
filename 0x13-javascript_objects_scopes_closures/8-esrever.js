@@ -1,4 +1,4 @@
-#!/usr/bin/env
+#!/usr/bin/node
 exports.esrever = function (list) {
   const tsil = [];
   while (list.length > 0) {
